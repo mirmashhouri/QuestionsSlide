@@ -5,8 +5,9 @@ import Link from 'next/link';
 
 import { InferGetStaticPropsType } from 'next';
 import { Case,QuestionType } from '../shared/types';
-import db from '../db.json';
+// import db from '../db.json';
 import { motion } from 'framer-motion';
+import { sampleQuestionData } from '../utils/sample-data'
 
 import {
   Question,
@@ -85,13 +86,16 @@ const Homepage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
 export const getStaticProps = async () => {
 
-  const response = await fetch('http://localhost:3005/questions');
-  const questions: Array<QuestionType> = await response.json();
-  return {
-    props: {
-      questions,
-    },
-  };
+  // const response = await fetch('http://localhost:3005/questions');
+  // const questions: Array<QuestionType> = await response.json();
+  // return {
+  //   props: {
+  //     questions,
+  //   },
+  // };
+
+const questions: Array<QuestionType> =  sampleQuestionData
+ return { props: { questions } }
 };
 
 

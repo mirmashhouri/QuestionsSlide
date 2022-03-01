@@ -1,6 +1,7 @@
-{
-  "questions":
-  [
+import { Case,QuestionType } from '../shared/types';
+
+/** Dummy user data. */
+export const sampleQuestionData: QuestionType[] =   [
     {
       "id": 1,
       "name": "Which of the below statements about electricity is not true?",
@@ -24,4 +25,3 @@
     }
 
   ]
-}

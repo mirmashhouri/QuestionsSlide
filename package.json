@@ -1,12 +1,12 @@
 {
-  "name": "animated-products-page-example",
+  "name": "animated-questions",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"yarn dev:server\" \"next dev\"",
-    "dev:server": "json-server --watch src/db.json --port 3005",
-    "build": "concurrently \"yarn dev:server\" \"next build\"",
-    "start": "concurrently \"yarn dev:server\" \"next start\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "concurrently": "^5.3.0",
