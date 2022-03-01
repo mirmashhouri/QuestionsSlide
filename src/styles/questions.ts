@@ -54,16 +54,6 @@ div.options {
 @media (max-width: 1070px) {
   margin-bottom: 10em;
 }
-
-@media (max-width: 425px) {
-  padding: 0 5em;
-}
-@media (max-width: 375px) {
-  padding: 0 6em;
-}
-@media (max-width: 320px) {
-  padding: 0 8em;
-}
 `;
 
 export const Question = styled(motion.li)`
