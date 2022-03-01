@@ -1,7 +1,7 @@
 export type Case =   {
     caseId:number;
     caseName:string;
-    active:bool;
+    active:boolean;
   }
 export type QuestionType = {
   id: number;

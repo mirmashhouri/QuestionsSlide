@@ -1,7 +1,8 @@
+let reverse = "reverse" as const;
 export const list = {
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 1,repeat: 1,repeatType: "reverse",duration: 2,repeatDelay: 3.5}
+transition: { staggerChildren: 0.15, delayChildren: 1,repeat: 1,repeatType: reverse,duration: 2,repeatDelay: 3.5}
   },
   hidden: { opacity: 0 },
 };
@@ -79,3 +80,4 @@ export const fadeInDown = {
     },
   },
 };
+//  transition: { staggerChildren: 0.15, delayChildren: 1,repeat: 1,repeatType: "Reverse",duration: 2,repeatDelay: 3.5}

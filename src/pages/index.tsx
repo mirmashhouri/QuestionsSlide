@@ -96,3 +96,4 @@ export const getStaticProps = async () => {
 
 
 export default Homepage;
+//initial="hidden" animate="visible" exit="hidden" variants={list}
