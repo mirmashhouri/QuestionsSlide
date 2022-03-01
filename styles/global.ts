@@ -10,4 +10,8 @@ export default createGlobalStyle`
   html{
     font-size: 62.5%
   }
+  .flag{
+    font-size:2.5rem;
+    margin: 5px;
+  }
 `;

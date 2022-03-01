@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-
+import Link from 'next/link';
 import { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 
@@ -23,6 +23,14 @@ const App: React.FC<AppProps> = ({
             content="width=device-width initial-scale=1.0"
           />
         </Head>
+        <Link href="/fr" locale="fr">
+            <a className="flag" href="#">Fr</a>
+        </Link>
+          <span className="flag" >|</span>
+        <Link href="/" locale="en">
+
+            <a className="flag" href="#">En</a>
+        </Link>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </>

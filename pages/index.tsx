@@ -1,3 +1,4 @@
+import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react';
 
 import Head from 'next/head';
@@ -5,9 +6,9 @@ import Link from 'next/link';
 
 import { InferGetStaticPropsType } from 'next';
 import { Case,QuestionType } from '../shared/types';
-// import db from '../db.json';
 import { motion } from 'framer-motion';
-import { sampleQuestionData } from '../utils/sample-data'
+import { sampleQuestionData } from '../utils/sample-data';
+import { useRouter } from 'next/router';
 
 import {
   Question,
@@ -16,29 +17,34 @@ import {
   Option,
   Circle
 } from '@styles/questions';
-import { list, listItem, listItemHover, title,filled } from 'src/animations';
+import { list, listItem, listItemHover, title,filled } from '../utils/animations';
 
 
-const Homepage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  questions,
-}) => {
+const Homepage: NextPage = () => {
+
+  const router = useRouter();
+  const { locale,locales } = router;
+const questions: Array<QuestionType> =  sampleQuestionData[locale];
 
   const [questionNow, setQuestionNow] = useState(questions[0]);
-  let i=0;
+
   useEffect(() => {
+      let questionIndex=0;
     const interval = setInterval(() => {
-      if(i<questions.length-1){
-        i++;
+      if(questionIndex<questions.length-1){
+        questionIndex++;
       }
-      else{i=0;}
+      else{questionIndex=0;}
         setQuestionNow(null);
-        setQuestionNow(questions[i]);
+        setQuestionNow(questions[questionIndex]);
 
     }, 8000);
     return () => clearInterval(interval);
   }, [questionNow]);
 
+
   return (
+
     <motion.div
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
@@ -61,7 +67,6 @@ const Homepage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               exit="hidden"
             >
                  <Option>
-
                       <label>
                       {x.active?(
                         <Circle initial="hidden" animate="visible" variants={filled}>
@@ -84,20 +89,7 @@ const Homepage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   );
 };
 
-export const getStaticProps = async () => {
 
-  // const response = await fetch('http://localhost:3005/questions');
-  // const questions: Array<QuestionType> = await response.json();
-  // return {
-  //   props: {
-  //     questions,
-  //   },
-  // };
-
-const questions: Array<QuestionType> =  sampleQuestionData
- return { props: { questions } }
-};
 
 
 export default Homepage;
-//initial="hidden" animate="visible" exit="hidden" variants={list}

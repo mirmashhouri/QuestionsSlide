@@ -122,15 +122,15 @@ span{
 export const Circle = styled(motion.span)`
   position: absolute;
   left: 0px;
-    :after {
-      position: absolute;
-      content: "";
-      border-radius: 50%;
-      top: 50%;
-      width:18px;
-      height:18px;
-      background: #6231EC;
-      left: 4px;
-      top:1px;
-    }
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  top: 50%;
+  width:18px;
+  height:18px;
+  background: #6231EC;
+  left: 4px;
+  -webkit-transform: translateY(-50%) !important;
+  -moz-transform: translateY(-50%) !important;
+  transform: translateY(-50%) !important;
 `;
