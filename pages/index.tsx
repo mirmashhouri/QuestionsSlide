@@ -17,7 +17,7 @@ import {
   Option,
   Circle
 } from '@styles/questions';
-import { list, listItem, listItemHover, title,filled } from '../utils/animations';
+import { list, listItem, listItemHover, title,filled} from '../utils/animations';
 
 
 const Homepage: NextPage = () => {
@@ -57,13 +57,14 @@ const questions: Array<QuestionType> =  sampleQuestionData[locale];
        {
         questionNow!=null?(
         <QuestionsContainer key={questionNow.id} initial="hidden" animate="visible" exit="hidden" variants={list}>
-        <motion.header initial="hidden" animate="visible" exit="hidden" variants={title}>
+        <motion.header  initial="hidden" animate="visible" exit="hidden" variants={title}>
           <h3>{questionNow.name}</h3>
         </motion.header>
-        {questionNow.cases.map(x=>
+        {questionNow.cases.map((x,index)=>
             <Question
               key={x.caseId}
-              variants={listItem}
+              initial="hidden" animate="visible"
+              variants={listItem((index*0.5) + 1.5)}
               exit="hidden"
             >
                  <Option>
@@ -76,7 +77,8 @@ const questions: Array<QuestionType> =  sampleQuestionData[locale];
                         <span>{x.caseName}</span>
                       </label>
                  </Option>
-            </Question>)
+            </Question>
+          )
 
         }
         </QuestionsContainer>

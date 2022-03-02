@@ -2,19 +2,21 @@ let reverse = "reverse" as const;
 export const list = {
   visible: {
     opacity: 1,
-transition: { staggerChildren: 0.15, delayChildren: 1,repeat: 1,repeatType: reverse,duration: 2,repeatDelay: 3.5}
+transition: { staggerChildren: 0.15, delayChildren: 1,repeat: 1,repeatType: reverse,duration: 2,repeatDelay: 4}
   },
   hidden: { opacity: 0 },
 };
 
-export const listItem = {
-  visible: {
-    opacity: 1,
-    y:0
-  },
-  hidden: { opacity: 0,y:"300%" },
+export const listItem = (delay: number) => {
+  return {
+    visible: {
+      opacity: 1,
+      y:0,
+      transition: { duration: 1, delay:delay}
+    },
+    hidden: { opacity: 0,y:80 },
+  };
 };
-
 export const listItemHover = {
   scale: [1, 1.07, 1],
   transition: { duration: 0.4 },
@@ -32,7 +34,7 @@ export const filled = {
   visible: {
     opacity: 1,
     scale: [0, 1.15, 1],
-    transition: { duration: 1, delay:3}
+    transition: { duration: 1, delay:4}
   },
   hidden: { opacity: 0 },
 };
