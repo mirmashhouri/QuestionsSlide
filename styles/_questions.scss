@@ -1,14 +1,15 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+@mixin vertical-center {
+  top: 50%;
+  -webkit-transform: translateY(-50%) !important;
+  -moz-transform: translateY(-50%) !important;
+  transform: translateY(-50%) !important;
+}
 
-export const ScreenContainer = styled.main`
+.main{
   display: flex;
   flex-direction: column;
-
   align-items: center;
-
   padding-bottom: 5rem;
-
 
   header {
     align-self:center;
@@ -16,12 +17,9 @@ export const ScreenContainer = styled.main`
     width:100%;
     margin: 2rem 0;
     padding:0 1rem;
-
-    font-family: 'Work Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-
-    color: #818181;
+    color: var(--grey);
 
     @media (max-width: 700px) {
       align-self: center;
@@ -33,19 +31,17 @@ export const ScreenContainer = styled.main`
     justify-content: center;
     text-decoration: none;
   }
-`;
+}
 
-export const QuestionsContainer = styled(motion.ul)`
+.questions-container{
 width: 350px;
-border:1px solid #6231EC;
+border:1px solid var(--purple0);
 border-radius:30px;
-font-family: 'Work Sans', sans-serif;
 font-weight: normal;
 font-size: 1rem;
 line-height: 1.9rem;
 margin-top: 10rem;
 padding:10px;
-
 div.options {
   display: flex;
   margin-top: 3.6rem;
@@ -54,32 +50,28 @@ div.options {
 @media (max-width: 1070px) {
   margin-bottom: 10em;
 }
-`;
+}
 
-export const Question = styled(motion.li)`
+.question{
   position: relative;
   padding: 0 1rem;
-
   list-style: none;
-
   div{
         padding:10px 0;
   }
   h3 {
     margin-top: 3rem;
-    font-family: 'Work Sans', sans-serif;
     font-size: 1.8rem;
     font-weight: bold;
-    color: #424347;
+    color: var(--darkGrey);
   }
-`;
-export const Option = styled(motion.div)`
+}
+.option{
 margin: 14px 0;
 padding: 0 15px;
 border-radius: 100px;
 -webkit-box-shadow: 0 0 8px 0 rgb(0 0 0 / 20%);
 box-shadow: 0 0 8px 0 rgb(0 0 0 / 20%);
-
 input[type=radio] {
     position: absolute;
     left: -10000px;
@@ -92,13 +84,10 @@ input[type=radio] {
     cursor: pointer;
 }
 label:after,label:before {
+    @include vertical-center;
     position: absolute;
     content: "";
     border-radius: 50%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    transform: translateY(-50%);
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease;
@@ -106,31 +95,27 @@ label:after,label:before {
     transition-property: border-color,-webkit-transform;
     -moz-transition-property: transform,border-color,-moz-transform;
     transition-property: transform,border-color;
-  transition-property: transform,border-color,-webkit-transform,-moz-transform;
+    transition-property: transform,border-color,-webkit-transform,-moz-transform;
 }
 label:before {
     left: 0;
-    width: 20px;
-    height: 20px;
-    border: 3px solid #6231EC;
+    width: $option-size;
+    height: $option-size;
+    border: 3px solid var(--purple0);
 }
 span{
   font-size:1.3rem;
-  color:#6231EC;
+  color:var(--purple0);
 }
-`;
-export const Circle = styled(motion.span)`
-  position: absolute;
+}
+.circle{
+  @include vertical-center;
   left: 0px;
   position: absolute;
   content: "";
   border-radius: 50%;
-  top: 50%;
-  width:18px;
-  height:18px;
-  background: #6231EC;
+  width:$circle-size;
+  height:$circle-size;
+  background-color: var(--purple0);
   left: 4px;
-  -webkit-transform: translateY(-50%) !important;
-  -moz-transform: translateY(-50%) !important;
-  transform: translateY(-50%) !important;
-`;
+}

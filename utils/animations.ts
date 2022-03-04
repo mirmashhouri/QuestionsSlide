@@ -82,4 +82,3 @@ export const fadeInDown = {
     },
   },
 };
-//  transition: { staggerChildren: 0.15, delayChildren: 1,repeat: 1,repeatType: "Reverse",duration: 2,repeatDelay: 3.5}

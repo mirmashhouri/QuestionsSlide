@@ -4,10 +4,8 @@ import Link from 'next/link';
 import { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 
-import GlobalStyle from '../styles/global';
+import '../styles/app.scss';
 
-//Este componente especial basicamente intermedia a renderização de toda e qualquer página no projeto.
-//logo, é comum tudo o que se for adicionar globalmente estar aqui.
 const App: React.FC<AppProps> = ({
   Component,
   pageProps,
@@ -15,7 +13,7 @@ const App: React.FC<AppProps> = ({
 }: AppProps) => {
   return (
     <>
-      <GlobalStyle />
+
       <AnimatePresence exitBeforeEnter>
         <Head>
           <meta
@@ -23,14 +21,11 @@ const App: React.FC<AppProps> = ({
             content="width=device-width initial-scale=1.0"
           />
         </Head>
-        <Link href="/fr" locale="fr">
-            <a className="flag" href="#">Fr</a>
-        </Link>
-          <span className="flag" >|</span>
-        <Link href="/" locale="en">
 
-            <a className="flag" href="#">En</a>
-        </Link>
+          <a href="/fr" className="flag">Fr</a>
+          <span className="flag" >|</span>
+          <a href="/" className="flag" >En</a>
+
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </>
@@ -38,3 +33,7 @@ const App: React.FC<AppProps> = ({
 };
 
 export default App;
+
+// <Link href="/fr" locale="fr">
+//     <a className="flag">Fr</a>
+// </Link>

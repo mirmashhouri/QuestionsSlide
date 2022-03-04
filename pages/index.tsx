@@ -10,13 +10,6 @@ import { motion } from 'framer-motion';
 import { sampleQuestionData } from '../utils/sample-data';
 import { useRouter } from 'next/router';
 
-import {
-  Question,
-  QuestionsContainer,
-  ScreenContainer,
-  Option,
-  Circle
-} from '@styles/questions';
 import { list, listItem, listItemHover, title,filled} from '../utils/animations';
 
 
@@ -53,38 +46,38 @@ const questions: Array<QuestionType> =  sampleQuestionData[locale];
       <Head>
         <title>question demo</title>
       </Head>
-      <ScreenContainer id="screenRoot">
+      <motion.div className="main" id="screenRoot">
        {
         questionNow!=null?(
-        <QuestionsContainer key={questionNow.id} initial="hidden" animate="visible" exit="hidden" variants={list}>
+        <motion.ul className="questions-container" key={questionNow.id} initial="hidden" animate="visible" exit="hidden" variants={list}>
         <motion.header  initial="hidden" animate="visible" exit="hidden" variants={title}>
           <h3>{questionNow.name}</h3>
         </motion.header>
         {questionNow.cases.map((x,index)=>
-            <Question
+            <motion.li className="question"
               key={x.caseId}
               initial="hidden" animate="visible"
               variants={listItem((index*0.5) + 1.5)}
               exit="hidden"
             >
-                 <Option>
+                 <motion.div className="option">
                       <label>
                       {x.active?(
-                        <Circle initial="hidden" animate="visible" variants={filled}>
-                        </Circle>
+                        <motion.span className="circle" initial="hidden" animate="visible" variants={filled}>
+                        </motion.span>
                       ):""}
 
                         <span>{x.caseName}</span>
                       </label>
-                 </Option>
-            </Question>
+                 </motion.div>
+            </motion.li>
           )
 
         }
-        </QuestionsContainer>
+        </motion.ul>
       ):""
       }
-      </ScreenContainer>
+      </motion.div>
     </motion.div>
 
 
