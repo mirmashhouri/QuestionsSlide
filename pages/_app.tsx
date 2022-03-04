@@ -24,7 +24,7 @@ const App: React.FC<AppProps> = ({
 
           <a href="/fr" className="flag">Fr</a>
           <span className="flag" >|</span>
-          <a href="/" className="flag" >En</a>
+          <a href="/en" className="flag" >En</a>
 
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
